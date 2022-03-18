@@ -2,6 +2,8 @@ service: workshop-${self:custom.name}
 
 custom:
   name: enrique
+  export-env:
+    overwrite: true
 
 provider:
   name: aws
@@ -41,3 +43,6 @@ resources:
   Outputs:
     RestaurantsTableName:
       Value: !Ref RestaurantsTable
+
+plugins:
+  - serverless-export-env
