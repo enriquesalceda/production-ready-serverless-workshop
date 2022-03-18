@@ -5,6 +5,11 @@ custom:
   export-env:
     overwrite: true
 
+  iamRoleStatements:
+    - Effect: Allow
+      Action: dynamodb:scan
+      Resource: !GetAtt RestaurantsTableName.Arn
+
 provider:
   name: aws
   runtime: nodejs12.x
