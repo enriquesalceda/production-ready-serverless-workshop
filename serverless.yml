@@ -17,10 +17,10 @@ functions:
           method: get
 
   get-restaurants:
-    handler: functions/get_restaurants.handler
+    handler: functions/get-restaurants.handler
     events:
       - http:
-          path: /restaurants
+          path: /restaurants/
           method: get
     environment:
       restaurants_table: !Ref RestaurantsTable
@@ -36,4 +36,4 @@ resources:
             AttributeType: S
         KeySchema:
           - AttributeName: name
-            AttributeType: HASH
+            KeyType: HASH
