@@ -1,7 +1,7 @@
 service: workshop-${self:customer.name}
 
 custom:
-  name: serveless-restaurant-workshop
+  name: enrique
 
 provider:
   name: aws
