@@ -1,4 +1,4 @@
-service: workshop-${self:customer.name}
+service: workshop-${self:custom.name}
 
 custom:
   name: enrique
@@ -6,6 +6,7 @@ custom:
 provider:
   name: aws
   runtime: nodejs12.x
+  region: ap-southeast-2
 
 functions:
   get-index:
