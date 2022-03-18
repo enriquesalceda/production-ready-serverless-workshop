@@ -5,15 +5,17 @@ custom:
   export-env:
     overwrite: true
 
-  iamRoleStatements:
-    - Effect: Allow
-      Action: dynamodb:scan
-      Resource: !GetAtt RestaurantsTableName.Arn
-
 provider:
   name: aws
   runtime: nodejs12.x
   region: ap-southeast-2
+  stage: dev
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Scan
+      Resource: !GetAtt RestaurantsTable.Arn
 
 functions:
   get-index:
@@ -22,6 +24,8 @@ functions:
       - http:
           path: /
           method: get
+    environment:
+      restaurants_api: !Sub https://${ApiGatewayRestApi}.execute-api.${AWS::Region}.amazonaws.com/${self:provider.stage}/restaurants
 
   get-restaurants:
     handler: functions/get-restaurants.handler
