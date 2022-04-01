@@ -10,8 +10,10 @@ const findRestaurantsByTheme = async(theme, count) => {
   const req = {
     TableName: tableName,
     Limit: count,
-    FilterExpression: 'contains(themes: :theme)',
-    ExpressionAttributeValues: { ':theme': theme }
+    FilterExpression: 'contains(themes, :theme)',
+    ExpressionAttributeValues: {
+      ':theme': { S: theme }
+    },
   }
 
   const resp = await dynamodb.scan(req).promise()
