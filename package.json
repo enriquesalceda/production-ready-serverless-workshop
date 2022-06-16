@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm run dotEnv && cross-env TEST_MODE=handler jest --silent",
+    "test": "npm run dotEnv && cross-env TEST_MODE=handler jest",
     "sls": "serverless",
     "dotEnv": "sls export-env --all",
     "acceptance": "npm run dotEnv && cross-env TEST_MODE=http jest"
