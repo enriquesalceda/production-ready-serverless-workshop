@@ -285,12 +285,13 @@
             restaurantsList.empty();
 
             for (var restaurant of restaurants) {
+              console.log(restaurant.image)
               restaurantsList.append(`
               <li class="restaurant">
                 <ul class="column-container">
-                    <li class="item restaurant-name">${restaurant.name}</li>
+                    <li class="item restaurant-name">${restaurant.name.S}</li>
                     <li class="item restaurant-image">
-                      <img src="${restaurant.image}">
+                      <img src="${restaurant.image.S}">
                     </li>
                 </ul>
               </li>
